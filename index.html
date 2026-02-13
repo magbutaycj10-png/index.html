@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine? 💌</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      background: #ffe6f0;
+      padding: 50px;
+      color: #333;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #ff3366;
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background: #ff4d94;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.2s, transform 0.2s;
+    }
+    button:hover {
+      background: #ff66b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey 😊</h1>
+  <p>Can you be my Valentine? 💖</p>
+  
+  <button id="yesBtn" onclick="handleYes()">Yes 😍</button>
+  <button id="noBtn" onclick="handleNo()">No 😅</button>
+
+  <script>
+    let noCount = 0; // Counter for No clicks
+    const noButton = document.getElementById("noBtn");
+    const yesButton = document.getElementById("yesBtn");
+    const googleFormLink = "https://docs.google.com/forms/d/e/1FAIpQLSe231rUua7YxFzZStDUAcYqX8GX9Y_5GeuuHfWdx2Xw9ZSMRg/viewform?usp=dialog"; // Replace with your Google Form link
+
+    function handleYes() {
+      // Redirect to Google Form
+      window.location.href = googleFormLink;
+    }
+
+    function handleNo() {
+      noCount++;
+
+      // Infinite "really"
+      let reallyText = "really ".repeat(noCount);
+      document.querySelector("p").textContent = `Are you ${reallyText}sure? 😏`;
+
+      // Shrink the No button
+      let noScale = Math.max(0.05, 1 - noCount * 0.1); // shrinks 10% per click
+      noButton.style.transform = `scale(${noScale})`;
+
+      // Grow the Yes button
+      let yesScale = 1 + noCount * 0.1; // grows 10% per No click
+      yesButton.style.transform = `scale(${yesScale})`;
+    }
+  </script>
+</body>
+</html>
