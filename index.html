@@ -38,6 +38,12 @@
   </style>
 </head>
 <body>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="Jin Sheng Yuan.mp3" type="audio/mpeg">
+  </audio>
+
   <h1>Hey 😊</h1>
   <p>Can you be my Valentine? 💖</p>
   
@@ -49,6 +55,12 @@
     const noButton = document.getElementById("noBtn");
     const yesButton = document.getElementById("yesBtn");
     const googleFormLink = "https://docs.google.com/forms/d/e/1FAIpQLSe231rUua7YxFzZStDUAcYqX8GX9Y_5GeuuHfWdx2Xw9ZSMRg/viewform?usp=dialog";
+
+    // Fix autoplay for some browsers
+    window.addEventListener("click", () => {
+      const music = document.getElementById("bgMusic");
+      music.play();
+    });
 
     function handleYes() {
       window.location.href = googleFormLink;
@@ -67,6 +79,6 @@
       yesButton.style.transform = `scale(${yesScale})`;
     }
   </script>
+
 </body>
 </html>
-
