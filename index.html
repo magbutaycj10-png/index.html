@@ -45,31 +45,28 @@
   <button id="noBtn" onclick="handleNo()">No 😅</button>
 
   <script>
-    let noCount = 0; // Counter for No clicks
+    let noCount = 0;
     const noButton = document.getElementById("noBtn");
     const yesButton = document.getElementById("yesBtn");
-    const googleFormLink = "https://docs.google.com/forms/d/e/1FAIpQLSe231rUua7YxFzZStDUAcYqX8GX9Y_5GeuuHfWdx2Xw9ZSMRg/viewform?usp=dialog"; // Replace with your Google Form link
+    const googleFormLink = "https://docs.google.com/forms/d/e/1FAIpQLSe231rUua7YxFzZStDUAcYqX8GX9Y_5GeuuHfWdx2Xw9ZSMRg/viewform?usp=dialog";
 
     function handleYes() {
-      // Redirect to Google Form
       window.location.href = googleFormLink;
     }
 
     function handleNo() {
       noCount++;
 
-      // Infinite "really"
       let reallyText = "really ".repeat(noCount);
       document.querySelector("p").textContent = `Are you ${reallyText}sure? 😏`;
 
-      // Shrink the No button
-      let noScale = Math.max(0.05, 1 - noCount * 0.1); // shrinks 10% per click
+      let noScale = Math.max(0.05, 1 - noCount * 0.1);
       noButton.style.transform = `scale(${noScale})`;
 
-      // Grow the Yes button
-      let yesScale = 1 + noCount * 0.1; // grows 10% per No click
+      let yesScale = 1 + noCount * 0.1;
       yesButton.style.transform = `scale(${yesScale})`;
     }
   </script>
 </body>
 </html>
+
